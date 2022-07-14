@@ -3,12 +3,17 @@ const dialogflow = require('dialogflow');
 const { googleProjectId } = require('../config/devkey');
 const config = require('../config/devkey')
 
-const projectId = config.googleProjectId;
-const sessionId = config.dialogflowSessionId;
+require('dotenv').config()
+
+const CREDENTIALS = JSON.parse(process.env.CREDENTIALS)
+const sessionId = "test-session"
+const languageCode = "en"
+
+const projectId = CREDENTIALS.project_id;
 
 const credentials = {
-    client_email: config.clientEmail,
-    private_key: config.googlePrivateKey,
+    client_email: CREDENTIALS.client_email,
+    private_key: CREDENTIALS.private_key,
 }
 
 const sessionClient = new dialogflow.SessionsClient({projectId, credentials});
@@ -22,7 +27,7 @@ const intentQuery = async(userText, userId) => {
         queryInput: {
             text: {
                 text: userText,
-                languageCode: config.dialogflowSessionLanguageCode
+                languageCode: languageCode
             }
         }
     }
