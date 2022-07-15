@@ -9,6 +9,8 @@ this template code consists of 2 main folders:
 ## df-server
 in order to run the server properly, you will need to create a service account and download a JSON key for your dialogflow project in the google developer console. instructions on how to do that can be found in [this youtube video](https://www.youtube.com/watch?v=F2ibS4gcglY) (starting ~6:00).
 
+> NOTE: this is for locally building/testing your own dialogflow endpoint. if you are interested in this exact endpoint that is implemented, it is currently hosted on heroku [here](https://github.com/rghosh96/df-api-heroku).
+
 there is currently just one endpoint that's really implemented, which is `query-intent`. 
 
 ### `query-intent`
